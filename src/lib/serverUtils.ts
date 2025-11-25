@@ -9,7 +9,10 @@ export async function checkModules(
   }[]
 ) {
   // utils/serviceHealth.ts
-  const results: Record<string, any> = {};
+  const results: Record<
+    string,
+    { connected: boolean; details?: unknown; message?: string }
+  > = {};
 
   for (const module of modules) {
     try {
@@ -19,8 +22,8 @@ export async function checkModules(
       modules = modules.map((m) =>
         m.name === module.name ? { ...m, status: "active" } : m
       );
-    } catch (err: any) {
-      results[module.name] = { connected: false, message: err.message };
+    } catch {
+      results[module.name] = { connected: false, message: "error" };
       modules = modules.map((m) =>
         m.name === module.name ? { ...m, status: "inactive" } : m
       );

@@ -16,7 +16,7 @@ export default class RoleRout {
         .then((role) =>
           res.status(201).json({ message: "registered", data: role })
         )
-        .catch((err) => res.status(400).json({ error: "could not register" }));
+        .catch(() => res.status(400).json({ error: "could not register" }));
     });
 
     this.routes.put("/:id", (req, res) => {
@@ -25,21 +25,21 @@ export default class RoleRout {
         .then((role) =>
           res.status(201).json({ message: "updated", data: role })
         )
-        .catch((err) => res.status(400).json({ error: "could not update" }));
+        .catch(() => res.status(400).json({ error: "could not update" }));
     });
 
     this.routes.get("/", (req, res) => {
       this.roleCtrl
         .getAll()
         .then((role) => res.status(201).json({ message: "found", data: role }))
-        .catch((err) => res.status(400).json({ error: "could not find" }));
+        .catch(() => res.status(400).json({ error: "could not find" }));
     });
 
     this.routes.get("/:id", (req, res) => {
       this.roleCtrl
         .getOne(req.params.id)
         .then((role) => res.status(201).json({ message: "found", data: role }))
-        .catch((err) => res.status(400).json({ error: "could not find" }));
+        .catch(() => res.status(400).json({ error: "could not find" }));
     });
 
     this.routes.delete("/:id", (req, res) => {
@@ -48,7 +48,7 @@ export default class RoleRout {
         .then((role) =>
           res.status(201).json({ message: "deleted", data: role })
         )
-        .catch((err) => res.status(400).json({ error: "could not delete" }));
+        .catch(() => res.status(400).json({ error: "could not delete" }));
     });
   }
 }

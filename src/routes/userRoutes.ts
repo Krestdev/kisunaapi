@@ -16,7 +16,7 @@ export default class UserRout {
         .then((user) =>
           res.status(201).json({ message: "registered", data: user })
         )
-        .catch((err) => res.status(400).json({ error: "could not register" }));
+        .catch(() => res.status(400).json({ error: "could not register" }));
     });
 
     this.routes.put("/:id", (req, res) => {
@@ -25,21 +25,21 @@ export default class UserRout {
         .then((user) =>
           res.status(201).json({ message: "updated", data: user })
         )
-        .catch((err) => res.status(400).json({ error: "could not update" }));
+        .catch(() => res.status(400).json({ error: "could not update" }));
     });
 
     this.routes.get("/", (req, res) => {
       this.userCtrl
         .getAll()
         .then((user) => res.status(201).json({ message: "found", data: user }))
-        .catch((err) => res.status(400).json({ error: "could not find" }));
+        .catch(() => res.status(400).json({ error: "could not find" }));
     });
 
     this.routes.get("/:id", (req, res) => {
       this.userCtrl
         .getOne(req.params.id)
         .then((user) => res.status(201).json({ message: "found", data: user }))
-        .catch((err) => res.status(400).json({ error: "could not find" }));
+        .catch(() => res.status(400).json({ error: "could not find" }));
     });
 
     this.routes.delete("/:id", (req, res) => {
@@ -48,7 +48,7 @@ export default class UserRout {
         .then((user) =>
           res.status(201).json({ message: "deleted", data: user })
         )
-        .catch((err) => res.status(400).json({ error: "could not delete" }));
+        .catch(() => res.status(400).json({ error: "could not delete" }));
     });
   }
 }

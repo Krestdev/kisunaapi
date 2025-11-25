@@ -16,7 +16,7 @@ export default class PresenceRout {
         .then((presence) =>
           res.status(201).json({ message: "registered", data: presence })
         )
-        .catch((err) => res.status(400).json({ error: "could not register" }));
+        .catch(() => res.status(400).json({ error: "could not register" }));
     });
 
     this.routes.put("/:id", (req, res) => {
@@ -25,7 +25,7 @@ export default class PresenceRout {
         .then((presence) =>
           res.status(201).json({ message: "updated", data: presence })
         )
-        .catch((err) => res.status(400).json({ error: "could not update" }));
+        .catch(() => res.status(400).json({ error: "could not update" }));
     });
 
     this.routes.get("/", (req, res) => {
@@ -34,7 +34,7 @@ export default class PresenceRout {
         .then((presence) =>
           res.status(201).json({ message: "found", data: presence })
         )
-        .catch((err) => res.status(400).json({ error: "could not find" }));
+        .catch(() => res.status(400).json({ error: "could not find" }));
     });
 
     this.routes.get("/:id", (req, res) => {
@@ -43,7 +43,7 @@ export default class PresenceRout {
         .then((presence) =>
           res.status(201).json({ message: "found", data: presence })
         )
-        .catch((err) => res.status(400).json({ error: "could not find" }));
+        .catch(() => res.status(400).json({ error: "could not find" }));
     });
 
     this.routes.delete("/:id", (req, res) => {
@@ -52,7 +52,7 @@ export default class PresenceRout {
         .then((presence) =>
           res.status(201).json({ message: "deleted", data: presence })
         )
-        .catch((err) => res.status(400).json({ error: "could not delete" }));
+        .catch(() => res.status(400).json({ error: "could not delete" }));
     });
   }
 }

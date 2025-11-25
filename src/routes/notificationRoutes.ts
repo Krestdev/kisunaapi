@@ -16,7 +16,7 @@ export default class NotificationRout {
         .then((notification) =>
           res.status(201).json({ message: "registered", data: notification })
         )
-        .catch((err) => res.status(400).json({ error: "could not register" }));
+        .catch(() => res.status(400).json({ error: "could not register" }));
     });
 
     this.routes.put("/:id", (req, res) => {
@@ -25,7 +25,7 @@ export default class NotificationRout {
         .then((notification) =>
           res.status(201).json({ message: "updated", data: notification })
         )
-        .catch((err) => res.status(400).json({ error: "could not update" }));
+        .catch(() => res.status(400).json({ error: "could not update" }));
     });
 
     this.routes.get("/", (req, res) => {
@@ -34,7 +34,7 @@ export default class NotificationRout {
         .then((notification) =>
           res.status(201).json({ message: "found", data: notification })
         )
-        .catch((err) => res.status(400).json({ error: "could not find" }));
+        .catch(() => res.status(400).json({ error: "could not find" }));
     });
 
     this.routes.get("/:id", (req, res) => {
@@ -43,7 +43,7 @@ export default class NotificationRout {
         .then((notification) =>
           res.status(201).json({ message: "found", data: notification })
         )
-        .catch((err) => res.status(400).json({ error: "could not find" }));
+        .catch(() => res.status(400).json({ error: "could not find" }));
     });
 
     this.routes.delete("/:id", (req, res) => {
@@ -52,7 +52,7 @@ export default class NotificationRout {
         .then((notification) =>
           res.status(201).json({ message: "deleted", data: notification })
         )
-        .catch((err) => res.status(400).json({ error: "could not delete" }));
+        .catch(() => res.status(400).json({ error: "could not delete" }));
     });
   }
 }

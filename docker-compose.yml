@@ -1,0 +1,35 @@
+services:
+  kisunaapi:
+    container_name: kisunaapi
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    volumes:
+      - /root/backup/kisuna/api-data:/app/uploads
+    ports:
+      - "5002:5000"
+    depends_on:
+      - postgres
+    networks:
+      - caddy-net
+  
+  postgres:
+    container_name: kisuna_postgres
+    image: postgres:16
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    volumes:
+      - /root/backup/kisuna/postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - caddy-net
+
+networks:
+  caddy-net:
+    driver: bridge
+    attachable: true

@@ -46,6 +46,7 @@ class ApiServer {
     this.app.use(`/api/v${GENERAL_CONFIG.app.version}/health`, (req, res) => {
       res.status(200).json("Up and running");
     });
+    this.baseModule();
   }
 
   // connect base module
@@ -85,8 +86,6 @@ class ApiServer {
   }
 
   public start() {
-    this.baseModule();
-
     // server swagger
     this.app.use(
       ["/openapi", "/docs", "/swagger"],
