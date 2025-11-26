@@ -15,7 +15,7 @@
     "test": "test",
     "dev": "nodemon ./src/index.ts",
     "lint": "eslint",
-    "build": "npx prisma generate --config ./src/prisma.config.ts && tsoa spec-and-routes && tsc",
+    "build": "tsoa spec-and-routes && tsc",
     "start": "node ./build/index.js"
   },
   "dependencies": {
