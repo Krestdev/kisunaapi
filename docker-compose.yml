@@ -10,7 +10,7 @@ services:
     volumes:
       - /root/backup/kisuna/api-data:/app/uploads
     ports:
-      - "5002:5000"
+      - "5003:5000"
     depends_on:
       - postgres
     networks:
@@ -25,7 +25,7 @@ services:
     volumes:
       - /root/backup/kisuna/postgres-data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks:
       - caddy-net
 
