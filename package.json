@@ -49,7 +49,7 @@
     "@types/node": "^24.10.1",
     "@types/nodemailer": "^7.0.3",
     "@types/pg": "^8.15.6",
-    "prisma": "^7.0.0",
+    "prisma": "^6.19.0",
     "typescript": "^5.9.3"
   }
 }
