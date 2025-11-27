@@ -1,3 +1,4 @@
+name: kisuna
 services:
   kisunaapi:
     container_name: kisunaapi
